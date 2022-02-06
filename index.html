@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"> 
+      
+    <title>Calculadora de propinas</title>
+  </head>
+  <body>
+    <div class="logo">
+      <img src="images/logo.svg" alt="titulo splitter">
+    </div>
+    <main class="contenedor">
+      <div class="calculador subcontenedor">
+        <div class="factura">
+          <span>Bill</span>
+          <div class="factura__pantalla pantalla">
+              <img class="factura__imagen" src="images/icon-dollar.svg" alt="dolar">
+              <span class="factura__valor">0</span>
+          </div>
+        </div>
+        <div class="porcentaje">
+          <span>Select Tip %</span>
+          <div class="porcentaje__valores">
+            <div class="valores">5%</div>
+            <div class="valores">10%</div>
+            <div class="valores">15%</div>
+            <div class="valores">25%</div>
+            <div class="valores">50%</div>
+            <div class="valores valores--custom">Custom</div>
+          </div>
+        </div>
+        <div class="empleados">
+          <span>Number of People</span>
+          <div class="empleados__pantalla pantalla">
+            <img class="empleados__imagen" src="images/icon-person.svg" alt="dolar">
+            <span class="empleados__cantidad">0</span>
+          </div>
+        </div>
+      </div>
+      <div class="vista subcontenedor">
+        <div class="resultado">
+          <div class="resultado__texto">
+            <span>Tip Amount</span>
+            <span>/ person</span>
+          </div>
+          <span class="resultado__detalle">$<span class="resultado__valor">0.00</span></span>
+        </div>
+        <div class="resultado">
+          <div class="resultado__texto">
+            <span>Total</span>
+            <span>/ person</span>
+          </div>
+          <span class="resultado__detalle">$<span class="resultado__valor">0.00</span></span>
+        </div>
+        <div class="boton">
+          <button class="boton">RESET</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
