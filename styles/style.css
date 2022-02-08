@@ -75,16 +75,16 @@ body {
 }
 
 .pantalla img {
-    height: 100%;
+
     margin: 12px;
 }
 
 .pantalla input {
+    width: 250px;
     outline: none;
     border: none;
     font-size: 26px;
     font-weight: 700;
-    font-style: bold;
     color: var(--veryDarkCyan);
     text-align: right;
     background-color: var(--veryLightGrayishCyan);
@@ -100,7 +100,8 @@ body {
 }
 
 .valor {
-    width: 116px;
+    max-width: 150px;
+    min-width: 116px;
     height: 47.5px;
     padding: 10px 10px;
     border-radius: 5px;
@@ -132,7 +133,6 @@ body {
     border: none;
     font-size: 26px;
     font-weight: 700;
-    font-style: bold;
     text-align: center;
     color: var(--veryDarkCyan);
     background-color: var(--veryLightGrayishCyan);

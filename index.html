@@ -24,7 +24,7 @@
           <span>Bill</span>
           <div class="factura__pantalla pantalla">
               <img class="factura__imagen" src="images/icon-dollar.svg" alt="dolar">
-              <input type="text" placeholder="0" id="factura__valor">
+              <input type="text" placeholder="0" pattern="[0-9]" title="can't be letters" id="factura__valor">
           </div>
         </div>
         <div class="porcentaje">
@@ -35,7 +35,7 @@
             <div class="valor active"><span class="cantidad">15</span>%</div>
             <div class="valor"><span class="cantidad">25</span>%</div>
             <div class="valor"><span class="cantidad">50</span>%</div>
-            <div class="valor valor--custom"><input type="text" placeholder="Custom" pattern="[0-100]" title="Ingrese un valor entre 0 y 100" maxlength="3" id="cantidad"></div>
+            <div class="valor valor--custom"><input type="text" placeholder="Custom" pattern="[0-100]" title="Can't be zero" maxlength="3" id="cantidad"></div>
           </div>
         </div>
         <div class="empleados">
