@@ -24,25 +24,25 @@
           <span>Bill</span>
           <div class="factura__pantalla pantalla">
               <img class="factura__imagen" src="images/icon-dollar.svg" alt="dolar">
-              <span class="factura__valor">0</span>
+              <input type="text" placeholder="0" id="factura__valor">
           </div>
         </div>
         <div class="porcentaje">
           <span>Select Tip %</span>
-          <div class="porcentaje__valores">
-            <div class="valores">5%</div>
-            <div class="valores">10%</div>
-            <div class="valores">15%</div>
-            <div class="valores">25%</div>
-            <div class="valores">50%</div>
-            <div class="valores valores--custom">Custom</div>
+          <div class="porcentaje__valor">
+            <div class="valor"><span class="cantidad">5</span>%</div>
+            <div class="valor"><span class="cantidad">10</span>%</div>
+            <div class="valor active"><span class="cantidad">15</span>%</div>
+            <div class="valor"><span class="cantidad">25</span>%</div>
+            <div class="valor"><span class="cantidad">50</span>%</div>
+            <div class="valor valor--custom"><input type="text" placeholder="Custom" pattern="[0-100]" title="Ingrese un valor entre 0 y 100" maxlength="3" id="cantidad"></div>
           </div>
         </div>
         <div class="empleados">
           <span>Number of People</span>
           <div class="empleados__pantalla pantalla">
             <img class="empleados__imagen" src="images/icon-person.svg" alt="dolar">
-            <span class="empleados__cantidad">0</span>
+            <input type="number" placeholder="0" max="99" min="1" maxlength="2" id="empleados__cantidad">
           </div>
         </div>
       </div>
@@ -52,14 +52,14 @@
             <span>Tip Amount</span>
             <span>/ person</span>
           </div>
-          <span class="resultado__detalle">$<span class="resultado__valor">0.00</span></span>
+          <span class="resultado__detalle">$<span class="resultado__valor" id="tip">0.00</span></span>
         </div>
         <div class="resultado">
           <div class="resultado__texto">
             <span>Total</span>
             <span>/ person</span>
           </div>
-          <span class="resultado__detalle">$<span class="resultado__valor">0.00</span></span>
+          <span class="resultado__detalle">$<span class="resultado__valor" id="total">0.00</span></span>
         </div>
         <div class="boton">
           <button class="boton">RESET</button>
