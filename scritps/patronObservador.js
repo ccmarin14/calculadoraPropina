@@ -16,7 +16,7 @@ class Sujeto{
 
     notificar(modelo,origen){ //Informa a cada uno de la lista
         this.observadores.forEach(visor =>{
-            visor.notificar(modelo,origen);
+            visor.notificar(modelo);
         })
     }
 }
@@ -28,69 +28,60 @@ class TextSujeto extends Sujeto{ //receptor de informacion
         this.text = "";
     }
 
-    notificar(text,origen){
+    notificar(text){
         this.text = text;
-        super.notificar(this,origen); //Se envia el objeto creado  con la clase
+        super.notificar(this); //Se envia el objeto creado  con la clase
     }
 }
 
 //(1) Escucha el cambio en el campo y elvia la informacion al receptor del sujeto
 $factura.addEventListener("input", (e)=>{
     $factura =  e.target.value;
-    sujeto.notificar(e.target.value,1);
+    sujeto.notificar(e.target.value);
 })
 
 $porcentaje.addEventListener("input", (e)=>{
-    $porcentaje = e.target.text;
-    sujeto.notificar(e.target.text,2);
+    $porcentaje = e.target.value;
+    cleanActive();
+    sujeto.notificar(e.target.value);
 })
 
 $porcentaje.addEventListener("click", (e)=>{
-    $porcentaje = e.target.childNodes[0].textContent;
-    sujeto.notificar(e.target.childNodes[0].textContent,2)
+    cleanActive();
+    if (e.target.id != "cantidad") {
+        $porcentaje = e.target.childNodes[0].textContent;
+        $valorCustom.value = "";
+        e.target.classList.add("active");
+        sujeto.notificar(e.target.childNodes[0].textContent);
+    }
 })
 
 $empleados.addEventListener("input", (e)=>{
     $empleados = e.target.value;
-    sujeto.notificar(e.target.value,3);
+    sujeto.notificar(e.target.value);
 })
 
 //Declaraciones
 
 //Clases que recibe el objeto y extraen el texto y opera segun la funcion
-class ObservadorA {
-    notificar(sujeto,origen) {
-        if ($empleados < 100 && $empleados != "" && $factura != "" && typeof($porcentaje) != "object") { 
-            this.result =  ($factura * ($porcentaje / 100)) / $empleados;
-        } else {
-            this.result =  '0.00'
-        }
-        tip.innerHTML = Math.round(this.result * 100) /100;
+class ObsA {
+    notificar(sujeto) {
+        tip.innerHTML = tipAmount();
     }
 }
 
-class ObservadorB {
-    notificar(sujeto,origen){
-        if ($empleados < 100 && $empleados != "" && $factura != "") {        
-            if (typeof($porcentaje) != "object") {
-                this.result =  ($factura * (($porcentaje / 100) + 1)) / $empleados;
-            } else {
-                this.result =  $factura / $empleados;
-            } 
-        }
-        else {
-            this.result =  $factura;
-        }
-    total.innerHTML = Math.round(this.result * 100) /100;
+class ObsB {
+    notificar(sujeto){
+        total.innerHTML = totalAmount();
     }
 }
 
 let sujeto = new TextSujeto();
 
 //Se inician los observadores
-let obsUno = new ObservadorA();
-let obsDos = new ObservadorB();
+let obs1 = new ObsA();
+let obs2 = new ObsB();
 
 //Se agregan a la lista de observadores
-sujeto.suscribete(obsUno);
-sujeto.suscribete(obsDos);
+sujeto.suscribete(obs1);
+sujeto.suscribete(obs2);
